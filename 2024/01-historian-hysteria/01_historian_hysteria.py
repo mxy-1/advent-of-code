@@ -8,15 +8,18 @@ example_input = """\
 """
 
 
+def get_total_distance(left_list: list, right_list:list) -> int:
+    total_distance = 0
+    for i in range(len(left_list)):
+        total_distance += abs(int(left_list[i]) - int(right_list[i]))
+    return total_distance
+
+
 def main(test_input):
     numbers_list = test_input.split()
     left_list = sorted(numbers_list[0::2])
     right_list = sorted(numbers_list[1::2])
-
-    total_distance = 0
-
-    for i in range(len(left_list)):
-        total_distance += abs(int(left_list[i]) - int(right_list[i]))
+    total_distance = get_total_distance(left_list, right_list)
 
     return total_distance
 
@@ -25,3 +28,4 @@ if __name__ == "__main__":
     test_input = f.read()
     total_distance = main(test_input)
     print(f'{total_distance=}')
+# 1660292
